@@ -21,7 +21,7 @@ def normalized(image, label):
     return tf.cast(image, tf.float32) / 255.0, label
 
 
-if __name__ == '__main__':
+def train(ds_train, ds_test):
     AUTOTUNE = tf.data.experimental.AUTOTUNE
     BATCH_SIZE = 128
 
@@ -74,3 +74,7 @@ if __name__ == '__main__':
     test_acc = acc_metric.result()
     print(f"Accuracy over test set: {test_acc}")
     acc_metric.reset_states()
+
+
+if __name__ == '__main__':
+    train(ds_train, ds_test)
